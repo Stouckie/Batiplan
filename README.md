@@ -23,10 +23,10 @@ pnpm -C apps/mobile install
 pnpm -C apps/mobile start
 ```
 
-Scannez le QR code dans Expo Go (même réseau). Connectez-vous avec Google pour voir votre email (sera implémenté dans les étapes suivantes).
+Scannez le QR code dans Expo Go (même réseau). Connectez-vous avec Google pour voir votre email, puis validez un code d'invitation via la fonction Supabase `verify-invite`.
 
 ## Scripts CI
 ```sh
-pnpm -r typecheck
-pnpm -r lint
+pnpm typecheck
+pnpm lint
 ```

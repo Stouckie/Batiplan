@@ -1,0 +1,5 @@
+- [x] Étape 0 — Discovery
+- [ ] Étape 1 — Bootstrap monorepo & CI
+- [ ] Étape 2 — Supabase (tables + RLS)
+- [ ] Étape 3 — Auth Google (Expo Go)
+- [ ] Étape 4 — Vérif code d’invitation (Edge Function + écran)

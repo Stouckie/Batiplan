@@ -8,9 +8,9 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "typecheck": "tsc --project tsconfig.json",
-    "lint": "cross-env CONFIG_TARGET=eslint eslint app --config ../../packages/config/eslint-prettier.config.cjs",
-    "lint:fix": "cross-env CONFIG_TARGET=eslint eslint app --config ../../packages/config/eslint-prettier.config.cjs --fix",
-    "format": "cross-env CONFIG_TARGET=prettier prettier \"app/**/*.{ts,tsx}\" --config ../../packages/config/eslint-prettier.config.cjs"
+    "lint": "cross-env CONFIG_TARGET=eslint eslint app src --ext .ts,.tsx --config ../../packages/config/eslint-prettier.config.cjs",
+    "lint:fix": "cross-env CONFIG_TARGET=eslint eslint app src --ext .ts,.tsx --config ../../packages/config/eslint-prettier.config.cjs --fix",
+    "format": "cross-env CONFIG_TARGET=prettier prettier \"{app,src}/**/*.{ts,tsx}\" --config ../../packages/config/eslint-prettier.config.cjs"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "~1.21.0",
@@ -29,21 +29,5 @@
     "eslint": "^8.57.0",
     "prettier": "^3.2.5",
     "typescript": "^5.3.3"
-  },
-  "expo": {
-    "name": "BatiPlan",
-    "slug": "batiplan",
-    "scheme": "batiplan",
-    "sdkVersion": "50.0.0",
-    "platforms": ["ios", "android"],
-    "version": "0.0.1",
-    "orientation": "portrait",
-    "experiments": {
-      "typedRoutes": true
-    },
-    "extra": {
-      "supabaseUrl": "${EXPO_PUBLIC_SUPABASE_URL}",
-      "supabaseAnonKey": "${EXPO_PUBLIC_SUPABASE_ANON_KEY}"
-    }
   }
 }

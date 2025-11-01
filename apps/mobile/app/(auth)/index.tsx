@@ -1,11 +1,6 @@
 import { Stack } from 'expo-router';
 import { useState } from 'react';
-import {
-  ActivityIndicator,
-  Pressable,
-  Text,
-  View,
-} from 'react-native';
+import { ActivityIndicator, Pressable, Text, View } from 'react-native';
 import * as AuthSession from 'expo-auth-session';
 
 import { supabase } from '@/lib/supabase';
@@ -18,21 +13,27 @@ export default function SignInScreen(): JSX.Element {
     setLoading(true);
     setError(null);
 
-    const redirectTo = AuthSession.makeRedirectUri({
-      scheme: 'batiplan',
-      useProxy: true,
-    });
+    try {
+      const redirectTo = AuthSession.makeRedirectUri({
+        scheme: 'batiplan',
+        useProxy: true,
+      });
 
-    const { error: signInError } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo,
-        skipBrowserRedirect: false,
-      },
-    });
+      const { error: signInError } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo,
+          skipBrowserRedirect: false,
+        },
+      });
 
-    if (signInError) {
-      setError(signInError.message);
+      if (signInError) {
+        setError(signInError.message);
+      }
+    } catch (signInException) {
+      console.error('Erreur lors de la connexion Google', signInException);
+      setError("Impossible de démarrer l'authentification Google.");
+    } finally {
       setLoading(false);
     }
   };
