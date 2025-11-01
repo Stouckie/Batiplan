@@ -1,0 +1,33 @@
+{
+  "name": "@batiplan/mobile",
+  "version": "0.0.1",
+  "private": true,
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "typecheck": "tsc --project tsconfig.json",
+    "lint": "cross-env CONFIG_TARGET=eslint eslint app src --ext .ts,.tsx --config ../../packages/config/eslint-prettier.config.cjs",
+    "lint:fix": "cross-env CONFIG_TARGET=eslint eslint app src --ext .ts,.tsx --config ../../packages/config/eslint-prettier.config.cjs --fix",
+    "format": "cross-env CONFIG_TARGET=prettier prettier \"{app,src}/**/*.{ts,tsx}\" --config ../../packages/config/eslint-prettier.config.cjs"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "~1.21.0",
+    "@supabase/supabase-js": "^2.39.3",
+    "expo": "~50.0.6",
+    "expo-auth-session": "~5.0.4",
+    "expo-router": "~3.5.6",
+    "react": "18.2.0",
+    "react-native": "0.73.6",
+    "react-native-url-polyfill": "^2.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3"
+  }
+}
